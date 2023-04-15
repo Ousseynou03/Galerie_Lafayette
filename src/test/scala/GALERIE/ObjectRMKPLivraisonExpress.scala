@@ -6,17 +6,18 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 import scala.language.postfixOps
 
-object ObjectEcomExpressSplit {
+object ObjectRMKPLivraisonExpress {
 
 
   private val TpsPause: Int = System.getProperty("tpsPause", "60").toInt
 
   val headersECOM = Map(
-    "Content-Type" -> "application/json",
     "X-GGL-CONTEXT-TENANT" -> "gl",
     "X-GGL-CONTEXT-RESERVATION" -> "false",
     "X-GGL-CONTEXT-GENERATION-ID" -> "false",
-    "Authorization" -> "Basic c3BsaXQ6c3BsaXQ=")
+    "Content-Type" -> "application/json",
+    "Authorization" -> "Basic c3BsaXQ6c3BsaXQ="
+  )
 
   val scnEcomExpress = scenario("ECOM Express Split")
     .exec(http("ECOM Express Split")

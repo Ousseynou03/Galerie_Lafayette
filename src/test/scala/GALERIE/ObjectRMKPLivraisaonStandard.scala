@@ -1,6 +1,6 @@
 package GALERIE
 
-import GALERIE.ObjectEcomExpressSplit.TpsPause
+import GALERIE.ObjectRMKPLivraisonExpress.TpsPause
 
 import scala.concurrent.duration._
 import io.gatling.core.Predef._
@@ -8,15 +8,15 @@ import io.gatling.http.Predef._
 
 import scala.language.postfixOps
 
-object ObjectStandardSplit {
+object ObjectRMKPLivraisaonStandard {
 
   private val TpsPause: Int = System.getProperty("tpsPause", "60").toInt
 
   val headers = Map(
-    "Content-Type" -> "application/json",
     "X-GGL-CONTEXT-TENANT" -> "gl",
-    "X-GGL-CONTEXT-RESERVATION" -> "false",
+    "X-GGL-CONTEXT-RESERVATION" -> "true",
     "X-GGL-CONTEXT-GENERATION-ID" -> "false",
+    "Content-Type" -> "application/json",
     "Authorization" -> "Basic c3BsaXQ6c3BsaXQ="
   )
 

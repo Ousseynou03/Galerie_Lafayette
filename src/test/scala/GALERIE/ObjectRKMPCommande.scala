@@ -8,13 +8,25 @@ import io.gatling.http.Predef._
 
 import scala.language.postfixOps
 
-object ObjectLivraisonExpress {
+object ObjectRKMPCommande {
+
+
 
   private val TpsPause: Int = System.getProperty("tpsPause", "60").toInt
+
+
+
+  val headersECOM = Map(
+    "X-GGL-CONTEXT-TENANT" -> "gl",
+    "X-GGL-CONTEXT-CHANNEL" -> "ecom",
+    "X-GGL-CONTEXT-SUBTENANT" -> "3050",
+    "Content-Type" -> "application/json",
+  )
 
   val scnLivraisonExpress = scenario("OMS API Split")
     .exec(http("RMKP Split")
       .post("/order-split-api/api/v1/split")
+      .headers(headersECOM)
       .asJson
       .body(StringBody(
         """{

@@ -59,10 +59,10 @@ class Galerie_Lafayette  extends  Simulation{
   }
 
 
-  val ecomExpress = scenario("Ecom Express").exec(ObjectEcomExpressSplit.scnEcomExpress)
-  val livraisonExpress = scenario("Livraison Express ").exec(ObjectLivraisonExpress.scnLivraisonExpress)
-  val rmkpLivraison = scenario("RMKP LIV").exec(ObjectRMKPLivraison.scnRmkpLivraison)
-  val standardSplit = scenario("Standard Liv").exec(ObjectStandardSplit.scnStandardSplit)
+  val ecomExpress = scenario("Ecom Express").exec(ObjectRMKPLivraisonExpress.scnEcomExpress)
+  val livraisonExpress = scenario("Livraison Express ").exec(ObjectRKMPCommande.scnLivraisonExpress)
+  val rmkpLivraison = scenario("RMKP LIV").exec(ObjectRMKPplusieursModeLivraison.scnRmkpLivraison)
+  val standardSplit = scenario("Standard Liv").exec(ObjectRMKPLivraisaonStandard.scnStandardSplit)
 
 
   setUp(
