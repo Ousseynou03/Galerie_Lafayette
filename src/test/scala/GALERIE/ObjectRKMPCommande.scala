@@ -23,7 +23,7 @@ object ObjectRKMPCommande {
     "Content-Type" -> "application/json",
   )
 
-  val scnLivraisonExpress = scenario("OMS API Split")
+  val scnRMKPCommande = scenario("OMS API Split")
     .exec(http("RMKP Split")
       .post("/order-split-api/api/v1/split")
       .headers(headersECOM)

@@ -60,14 +60,14 @@ class Galerie_Lafayette  extends  Simulation{
 
 
   val ecomExpress = scenario("Ecom Express").exec(ObjectRMKPLivraisonExpress.scnEcomExpress)
-  val livraisonExpress = scenario("Livraison Express ").exec(ObjectRKMPCommande.scnLivraisonExpress)
+  val rmkpCommande = scenario("RMKP COMMANDE ").exec(ObjectRKMPCommande.scnRMKPCommande)
   val rmkpLivraison = scenario("RMKP LIV").exec(ObjectRMKPplusieursModeLivraison.scnRmkpLivraison)
   val standardSplit = scenario("Standard Liv").exec(ObjectRMKPLivraisaonStandard.scnStandardSplit)
 
 
   setUp(
     ecomExpress.inject(rampUsers(nbVu * 10) during ( TpsMonteEnCharge  minutes) , nothingFor(  TpsPalier  minutes)),
-    livraisonExpress.inject(rampUsers(nbVu * 10) during ( TpsMonteEnCharge  minutes) , nothingFor(  TpsPalier  minutes)),
+    rmkpCommande.inject(rampUsers(nbVu * 10) during ( TpsMonteEnCharge  minutes) , nothingFor(  TpsPalier  minutes)),
     rmkpLivraison.inject(rampUsers(nbVu * 10) during ( TpsMonteEnCharge  minutes) , nothingFor(  TpsPalier  minutes)),
     standardSplit.inject(rampUsers(nbVu * 10) during ( TpsMonteEnCharge  minutes) , nothingFor(  TpsPalier  minutes))
   ).protocols(httpProtocol)
